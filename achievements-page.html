@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPC Achievements - Uganda People's Congress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 24px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-red {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-red:hover {
+            background-color: #d32f2f;
+        }
+
+        .btn-blue {
+            background-color: #3f51b5;
+            color: white;
+        }
+
+        .btn-blue:hover {
+            background-color: #303f9f;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+        }
+
+        /* Enhanced Navigation Styles */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            display: flex;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            display: block;
+            color: white;
+            font-weight: bold;
+            padding: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .main-nav a.active {
+            background-color: #f44336;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #3f51b5;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a::after {
+            content: " ▼";
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        /* Page title section */
+        .page-title {
+            background-color: #3f51b5;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .page-title h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Achievements section */
+        .achievements {
+            padding: 50px 0;
+        }
+
+        .achievements-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .achievements-intro h2 {
+            color: #3f51b5;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .achievements-intro p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            color: #555;
+        }
+
+        /* Achievement timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #f44336;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid #f44336;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -12px;
+        }
+
+        .right::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content h3 {
+            color: #3f51b5;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h4 {
+            color: #f44336;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* Achievement categories */
+        .achievement-categories {
+            padding: 40px 0;
+            background-color: #f5f5f5;
+        }
+
+        .categories-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 350px;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-header {
+            background-color: #3f51b5;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .category-body {
+            padding: 20px;
+        }
+
+        .category-body ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .category-body li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .category-body li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #f44336;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Historical figures section */
+        .historical-figures {
+            padding: 50px 0;
+            background-color: white;
+        }
+
+        .historical-figures h2 {
+            text-align: center;
+            color: #3f51b5;
+            margin-bottom: 40px;
+        }
+
+        .figures-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .figure-card {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .figure-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .figure-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .figure-content {
+            padding: 20px;
+        }
+
+        .figure-content h3 {
+            color: #3f51b5;
+            margin-bottom: 5px;
+        }
+
+        .figure-content h4 {
+            color: #f44336;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .figure-content p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* Call to action section */
+        .cta {
+            background-color: #f44336;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            background-color: white;
+            color: #f44336;
+            font-weight: bold;
+            padding: 12px 25px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-3px);
+        }
+
+        /* Footer section */
+        .footer {
+            padding: 40px 0;
+            background-color: #f5f5f5;
+            position: relative;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/akena.jpg-BeFj0IzHiXmpsvi2EskQ4MIi0Jdp9w.jpeg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-right {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-box {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-box h3.red {
+            color: #f44336;
+        }
+
+        .footer-box h3.blue {
+            color: #3f51b5;
+        }
+
+        .footer-box p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #3f51b5;
+                flex-direction: column;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .main-nav li {
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: #303f9f;
+                display: none;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown > a::after {
+                float: right;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 18px;
+            }
+
+            .left::after, .right::after {
+                left: 18px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo"> <img src="images/ppc.png" alt="UPC Logo"> </div>
+          <button class="nav-toggle" id="navToggle"> <i class="fas fa-bars"></i>
+          </button>
+          <nav class="main-nav" id="mainNav">
+            <ul>
+              <li><a href="index.html">HOME</a></li>
+              <li class="dropdown"> <a href="#" class="active">ABOUT</a>
+                <div class="dropdown-content"> <a href="#">Party History</a> <a
+
+                    href="leadership.html">Leadership</a> <a href="#">Constitution</a>
+                  <a href="#" class="active">Achievements</a> </div>
+              </li>
+              <li class="dropdown"> <a href="#">CURRENT</a>
+                <div class="dropdown-content"> <a href="news.html">News &amp;
+                    Events</a> <a href="#">Press Releases</a> <a href="#">Campaigns</a>
+                  <a href="#">Statements</a> </div>
+              </li>
+              <li class="dropdown"> <a href="#">HISTORY</a>
+                <div class="dropdown-content"> <a href="#">Founding</a> <a href="#">Past
+                    Leaders</a> <a href="#">Historical Timeline</a> <a href="gallery.html">Photo
+                    Gallery</a> </div>
+              </li>
+              <li><a href="membership.html">MEMBERSHIP</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+              <li><a href="donate.html">DONATE</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- Page Title -->
+    <section class="page-title">
+      <div class="container">
+        <h1>UPC ACHIEVEMENTS</h1>
+        <p>Celebrating the accomplishments and legacy of the Uganda People's
+          Congress throughout our history</p>
+      </div>
+    </section>
+    <!-- Achievements Introduction -->
+    <section class="achievements">
+      <div class="container">
+        <div class="achievements-intro">
+          <h2>A LEGACY OF PROGRESS</h2>
+          <p>Since its formation, the Uganda People's Congress has been at the
+            forefront of Uganda's political, economic, and social development.
+            Our party has a rich history of achievements that have shaped the
+            nation we know today.</p>
+          <p>Below is a timeline of some of our most significant accomplishments
+            that demonstrate our commitment to serving the Ugandan people and
+            building a better future for all citizens.</p>
+        </div>
+        <!-- Achievement Timeline -->
+        <div class="timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h3>Independence Achievement</h3>
+              <h4>1962</h4>
+              <p>Led Uganda to independence as part of the coalition government,
+                marking the end of colonial rule and the beginning of
+                self-governance for Uganda.</p>
+              <p>UPC played a pivotal role in the negotiations that secured
+                independence from British colonial rule.</p>
+            </div>
+          </div>
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h3>Economic Development</h3>
+              <h4>1963-1970</h4>
+              <p>Implemented strategic economic policies that established Uganda
+                as one of East Africa's economic powerhouses, with thriving
+                agricultural and manufacturing sectors.</p>
+              <p>Created the first 5-year development plan that established the
+                foundation for Uganda's industrial growth.</p>
+            </div>
+          </div>
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h3>Educational Reforms</h3>
+              <h4>1964-1971</h4>
+              <p>Expanded access to education by establishing numerous schools
+                and launching the first public university in the country.</p>
+              <p>Increased literacy rates significantly through comprehensive
+                educational reforms and initiatives.</p>
+            </div>
+          </div>
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h3>Healthcare Improvements</h3>
+              <h4>1966-1971</h4>
+              <p>Built regional hospitals across Uganda, ensuring better
+                healthcare access for citizens across the country.</p>
+              <p>Implemented vaccination campaigns that significantly reduced
+                child mortality rates.</p>
+            </div>
+          </div>
+          <!-- Timeline Item 5 -->
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h3>Constitutional Development</h3>
+              <h4>1967</h4>
+              <p>Established the Republic Constitution which laid the foundation
+                for Uganda's modern governance structure.</p>
+              <p>Reformed local government systems to improve service delivery
+                and representation.</p>
+            </div>
+          </div>
+          <!-- Timeline Item 6 -->
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h3>Democratic Restoration</h3>
+              <h4>1980</h4>
+              <p>Facilitated Uganda's return to democratic governance following
+                years of military rule.</p>
+              <p>Established democratic institutions that have stood the test of
+                time in Uganda's political landscape.</p>
+            </div>
+          </div>
+          <!-- Timeline Item 7 -->
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h3>Infrastructure Development</h3>
+              <h4>1981-1985</h4>
+              <p>Implemented major infrastructure projects including road
+                networks, bridges, and dams that continue to serve Uganda today.</p>
+              <p>Expanded electricity access to rural communities, significantly
+                improving living standards.</p>
+            </div>
+          </div>
+          <!-- Timeline Item 8 -->
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h3>Political Reforms</h3>
+              <h4>2006-Present</h4>
+              <p>Championed democratic reforms and multiparty politics,
+                contributing to a more vibrant democratic space in Uganda.</p>
+              <p>Advocated for constitutional reforms aimed at strengthening
+                democratic institutions and governance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Achievement Categories -->
+    <section class="achievement-categories">
+      <div class="container">
+        <div class="categories-grid">
+          <!-- Category 1 -->
+          <div class="category-card">
+            <div class="category-header">
+              <h3>Economic Achievements</h3>
+            </div>
+            <div class="category-body">
+              <ul>
+                <li>Establishment of cooperative societies enhancing
+                  agricultural production</li>
+                <li>Creation of the Uganda Development Corporation to drive
+                  industrialization</li>
+                <li>Implementation of coffee and cotton marketing boards</li>
+                <li>Development of the first comprehensive national budget</li>
+                <li>Establishment of the Bank of Uganda</li>
+                <li>Implementation of policies that led to economic growth of
+                  over 5% annually during our governance</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Category 2 -->
+          <div class="category-card">
+            <div class="category-header">
+              <h3>Social Achievements</h3>
+            </div>
+            <div class="category-body">
+              <ul>
+                <li>Expansion of free primary education across the country</li>
+                <li>Creation of scholarships for higher education students</li>
+                <li>Development of national sports programs and facilities</li>
+                <li>Establishment of women's empowerment initiatives</li>
+                <li>Creation of youth development programs</li>
+                <li>Implementation of rural development projects improving
+                  living standards</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Category 3 -->
+          <div class="category-card">
+            <div class="category-header">
+              <h3>Political Achievements</h3>
+            </div>
+            <div class="category-body">
+              <ul>
+                <li>Leading Uganda to independence from colonial rule</li>
+                <li>Establishment of a republican constitution</li>
+                <li>Creation of democratic institutions</li>
+                <li>Championing multiparty politics</li>
+                <li>Advocating for constitutional reforms</li>
+                <li>Representation in parliament across multiple terms</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Historical Figures -->
+    <section class="historical-figures">
+      <div class="container">
+        <h2>KEY FIGURES IN UPC ACHIEVEMENTS</h2>
+        <div class="figures-grid">
+          <!-- Figure 1 -->
+          <div class="figure-card">
+            <div class="figure-image"> <img src="/api/placeholder/300/200" alt="Dr. Milton Obote">
+            </div>
+            <div class="figure-content">
+              <h3>Dr. Milton Obote</h3>
+              <h4>Founding President</h4>
+              <p>Led Uganda to independence and implemented many of the early
+                achievements of the party including economic reforms and
+                educational expansion.</p>
+            </div>
+          </div>
+          <!-- Figure 2 -->
+          <div class="figure-card">
+            <div class="figure-image"> <img src="/api/placeholder/300/200" alt="Ignatius Musazi">
+            </div>
+            <div class="figure-content">
+              <h3>Ignatius Musazi</h3>
+              <h4>UNC Founder</h4>
+              <p>Established the Uganda National Congress, which later formed
+                the foundation for UPC. Led early efforts for better economic
+                conditions for Ugandan farmers.</p>
+            </div>
+          </div>
+          <!-- Figure 3 -->
+          <div class="figure-card">
+            <div class="figure-image"> <img src="/api/placeholder/300/200" alt="Jimmy Akena">
+            </div>
+            <div class="figure-content">
+              <h3>Jimmy Akena</h3>
+              <h4>Current President</h4>
+              <p>Leading the party in its modern revival and continuing the
+                legacy of championing democracy and social justice in Uganda.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Call to Action -->
+    <section class="cta">
+      <div class="container">
+        <h2>JOIN US IN BUILDING ON THIS LEGACY</h2>
+        <p>The achievements of UPC demonstrate our commitment to creating a
+          prosperous, democratic, and united Uganda. Help us continue this
+          important work by becoming a member or supporting our efforts.</p>
+        <div class="cta-buttons"> <a href="membership.html" class="cta-btn">BECOME
+            A MEMBER</a> <a href="donate.html" class="cta-btn">SUPPORT OUR
+            CAUSE</a> </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-left">
+            <div class="footer-box">
+              <h3 class="red">Why Us?</h3>
+              <p><strong>Join The Crowd, Be United!</strong></p>
+              <p>The roots of Uganda People's Congress (UPC) can be traced to
+                the Uganda National Congress (UNC) which was formed in 1952
+                under the leadership of Ignatius Musazi.</p>
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/akena.jpg-BeFj0IzHiXmpsvi2EskQ4MIi0Jdp9w.jpeg"
+
+                alt="Footer Image"> </div>
+          </div>
+          <div class="footer-right">
+            <div class="footer-box">
+              <h3 class="blue"><a href="leadership.html" style="color: inherit;">Leadership</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="#" style="color: inherit;">Future Party
+                  Plans</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="#" style="color: inherit;">Past
+                  Achievements</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="membership.html" style="color: inherit;">Membership</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="gallery.html" style="color: inherit;">Photo
+                  Gallery</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="contact.html" style="color: inherit;">Contact
+                  Us</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- JavaScript for Mobile Navigation -->
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const mainNav = document.getElementById('mainNav');
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            // Toggle mobile menu
+            navToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                mainNav.classList.toggle('active');
+            });
+
+            // Handle dropdowns on mobile
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other open dropdowns
+                        dropdowns.forEach(d => {
+                            if (d !== dropdown) {
+                                d.classList.remove('active');
+                            }
+                        });
+                        
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+
+            // Prevent dropdown content clicks from closing the dropdown
+            const dropdownContents = document.querySelectorAll('.dropdown-content');
+            dropdownContents.forEach(content => {
+                content.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mainNav.contains(e.target) && e.target !== navToggle) {
+                    mainNav.classList.remove('active');
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    mainNav.classList.remove('active');
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
+    
+  </body>
+</html>

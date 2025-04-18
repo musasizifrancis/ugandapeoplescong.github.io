@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPC - Past Leaders | Uganda People's Congress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 24px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-red {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-red:hover {
+            background-color: #d32f2f;
+        }
+
+        .btn-blue {
+            background-color: #3f51b5;
+            color: white;
+        }
+
+        .btn-blue:hover {
+            background-color: #303f9f;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+        }
+
+        /* Enhanced Navigation Styles */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            display: flex;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            display: block;
+            color: white;
+            font-weight: bold;
+            padding: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .main-nav a.active {
+            background-color: #f44336;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #3f51b5;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a::after {
+            content: " ▼";
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: #f44336;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 50px 0;
+            background-color: white;
+        }
+
+        .leaders-intro {
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .leaders-intro h2 {
+            color: #3f51b5;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .leaders-intro p {
+            color: #555;
+        }
+
+        .leaders-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .leader-card {
+            width: 100%;
+            max-width: 350px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leader-image {
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .leader-card:hover .leader-image img {
+            transform: scale(1.05);
+        }
+
+        .leader-details {
+            padding: 20px;
+        }
+
+        .leader-name {
+            color: #3f51b5;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .leader-title {
+            color: #f44336;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .leader-period {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .leader-description {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .link-box {
+            background-color: #3f51b5;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 30px auto;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .link-box h3 {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .link-box a {
+            color: white;
+            text-decoration: underline;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        
+        /* Footer section */
+        .footer {
+            padding: 40px 0;
+            background-color: #f5f5f5;
+            position: relative;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/akena.jpg-BeFj0IzHiXmpsvi2EskQ4MIi0Jdp9w.jpeg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-right {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-box {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-box h3.red {
+            color: #f44336;
+        }
+
+        .footer-box h3.blue {
+            color: #3f51b5;
+        }
+
+        .footer-box p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #3f51b5;
+                flex-direction: column;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .main-nav li {
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: #303f9f;
+                display: none;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown > a::after {
+                float: right;
+            }
+
+            .leader-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+  </head>
+  <body> <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo"> <img src="images/ppc.png" alt="UPC Logo"> </div>
+          <button class="nav-toggle" id="navToggle"> <i class="fas fa-bars"></i>
+          </button>
+          <nav class="main-nav" id="mainNav">
+            <ul>
+              <li><a href="index.html">HOME</a></li>
+              <li class="dropdown"> <a href="#">ABOUT</a>
+                <div class="dropdown-content"> <a href="#">Party History</a> <a
+
+                    href="leadership.html">Leadership</a> <a href="leadership.html">Constitution</a>
+                  <a href="#">Achievements</a> </div>
+              </li>
+              <li class="dropdown"> <a href="#">CURRENT</a>
+                <div class="dropdown-content"> <a href="news.html">News &amp;
+                    Events</a> <a href="#">Press Releases</a> <a href="#">Campaigns</a>
+                  <a href="#">Statements</a> </div>
+              </li>
+              <li class="dropdown"> <a href="#" class="active">HISTORY</a>
+                <div class="dropdown-content"> <a href="founding.html">Founding</a>
+                  <a href="past-leaders.html" class="active">Past Leaders</a> <a
+
+                    href="historical-timeline.html">Historical Timeline</a> <a
+
+                    href="gallery.html">Photo Gallery</a> </div>
+              </li>
+              <li><a href="membership.html">MEMBERSHIP</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+              <li><a href="donate.html">DONATE</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>PAST LEADERS OF UPC</h1>
+        <p>The visionaries who shaped our party's history</p>
+      </div>
+    </section>
+    <!-- Main Content -->
+    <section class="main-content">
+      <div class="container">
+        <div class="leaders-intro">
+          <h2>Legacy of Leadership</h2>
+          <p>Since its founding in 1960, the Uganda People's Congress has been
+            led by distinguished individuals who have shaped not only the party
+            but also the nation's history. These leaders have steered the party
+            through Uganda's independence, political transitions, challenges,
+            and resurgence.</p>
+        </div>
+        <div class="leaders-grid">
+          <!-- Leader 1 -->
+          <div class="leader-card">
+            <div class="leader-image"> <img src="/api/placeholder/350/250" alt="Dr. Apollo Milton Obote">
+            </div>
+            <div class="leader-details">
+              <h3 class="leader-name">Dr. Apollo Milton Obote</h3>
+              <p class="leader-title">Founding President</p>
+              <p class="leader-period">1960 - 1985</p>
+              <p class="leader-description">Dr. Apollo Milton Obote was the
+                founding president of the Uganda People's Congress and the first
+                Prime Minister of independent Uganda. He led the party through
+                independence and two terms as the country's president, with his
+                leadership defining much of Uganda's early post-colonial
+                history.</p>
+              <a href="#" class="btn btn-blue">Learn More</a> </div>
+          </div>
+          <!-- Leader 2 -->
+          <div class="leader-card">
+            <div class="leader-image"> <img src="/api/placeholder/350/250" alt="Cecilia Ogwal">
+            </div>
+            <div class="leader-details">
+              <h3 class="leader-name">Cecilia Ogwal</h3>
+              <p class="leader-title">Party President (Interim)</p>
+              <p class="leader-period">1985 - 1992</p>
+              <p class="leader-description">Cecilia Ogwal served as the interim
+                president of UPC following Dr. Obote's exile. Known as the "Iron
+                Lady," she maintained the party's relevance during a challenging
+                period in Uganda's political landscape, advocating for
+                democratic principles and multi-party politics.</p>
+              <a href="#" class="btn btn-blue">Learn More</a> </div>
+          </div>
+          <!-- Leader 3 -->
+          <div class="leader-card">
+            <div class="leader-image"> <img src="/api/placeholder/350/250" alt="Dr. Olara Otunnu">
+            </div>
+            <div class="leader-details">
+              <h3 class="leader-name">Dr. Olara Otunnu</h3>
+              <p class="leader-title">Party President</p>
+              <p class="leader-period">2010 - 2015</p>
+              <p class="leader-description">Dr. Olara Otunnu, a former UN
+                Under-Secretary-General, led UPC with a vision for national
+                reconciliation and democratic reform. His international
+                experience brought a global perspective to the party's policies
+                and approach to governance.</p>
+              <a href="#" class="btn btn-blue">Learn More</a> </div>
+          </div>
+          <!-- Leader 4 -->
+          <div class="leader-card">
+            <div class="leader-image"> <img src="/api/placeholder/350/250" alt="Miria Obote">
+            </div>
+            <div class="leader-details">
+              <h3 class="leader-name">Miria Obote</h3>
+              <p class="leader-title">Party President</p>
+              <p class="leader-period">2005 - 2010</p>
+              <p class="leader-description">Miria Obote, widow of Milton Obote,
+                led the party with resilience and determination to maintain its
+                historical legacy. During her leadership, she worked to unite
+                different factions within the party and position UPC as a
+                significant opposition force.</p>
+              <a href="#" class="btn btn-blue">Learn More</a> </div>
+          </div>
+          <!-- Leader 5 -->
+          <div class="leader-card">
+            <div class="leader-image"> <img src="/api/placeholder/350/250" alt="James Rwanyarare">
+            </div>
+            <div class="leader-details">
+              <h3 class="leader-name">Dr. James Rwanyarare</h3>
+              <p class="leader-title">Acting Chairman</p>
+              <p class="leader-period">1992 - 2005</p>
+              <p class="leader-description">Dr. James Rwanyarare played a
+                crucial role in maintaining the UPC's presence during a period
+                when political parties faced significant restrictions. His
+                steadfast commitment to multi-party democracy helped keep the
+                party's ideals alive.</p>
+              <a href="#" class="btn btn-blue">Learn More</a> </div>
+          </div>
+          <!-- Leader 6 -->
+          <div class="leader-card">
+            <div class="leader-image"> <img src="/api/placeholder/350/250" alt="Joseph Bbosa">
+            </div>
+            <div class="leader-details">
+              <h3 class="leader-name">Joseph Bbosa</h3>
+              <p class="leader-title">Vice President</p>
+              <p class="leader-period">2010 - 2015</p>
+              <p class="leader-description">Joseph Bbosa served as a key figure
+                in the UPC leadership structure, advocating for party reforms
+                and strengthening grassroots organization. His dedication to the
+                party's historical principles earned him respect across the
+                political spectrum.</p>
+              <a href="#" class="btn btn-blue">Learn More</a> </div>
+          </div>
+        </div>
+        <div class="link-box">
+          <h3>Explore More UPC History</h3>
+          <a href="founding.html">UPC Founding</a> <a href="historical-timeline.html">Historical
+            Timeline</a> <a href="gallery.html">Photo Gallery</a> </div>
+      </div>
+    </section>
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-left">
+            <div class="footer-box">
+              <h3 class="red">Why Us?</h3>
+              <p><strong>Join The Crowd, Be United!</strong></p>
+              <p>The roots of Uganda People's Congress (UPC) can be traced to
+                the Uganda National Congress (UNC) which was formed in 1952
+                under the leadership of Ignatius Musazi.</p>
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/akena.jpg-BeFj0IzHiXmpsvi2EskQ4MIi0Jdp9w.jpeg"
+
+                alt="Footer Image"> </div>
+          </div>
+          <div class="footer-right">
+            <div class="footer-box">
+              <h3 class="blue"><a href="leadership.html" style="color: inherit;">Leadership</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="#" style="color: inherit;">Future Party
+                  Plans</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="#" style="color: inherit;">Past
+                  Achievements</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="membership.html" style="color: inherit;">Membership</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="gallery.html" style="color: inherit;">Photo
+                  Gallery</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="contact.html" style="color: inherit;">Contact
+                  Us</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- JavaScript for Mobile Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const mainNav = document.getElementById('mainNav');
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            // Toggle mobile menu
+            navToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                mainNav.classList.toggle('active');
+            });
+
+            // Handle dropdowns on mobile
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other open dropdowns
+                        dropdowns.forEach(d => {
+                            if (d !== dropdown) {
+                                d.classList.remove('active');
+                            }
+                        });
+                        
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+
+            // Prevent dropdown content clicks from closing the dropdown
+            const dropdownContents = document.querySelectorAll('.dropdown-content');
+            dropdownContents.forEach(content => {
+                content.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mainNav.contains(e.target) && e.target !== navToggle) {
+                    mainNav.classList.remove('active');
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    mainNav.classList.remove('active');
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
+  </body>
+</html>

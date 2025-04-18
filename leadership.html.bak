@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership - Uganda People's Congress (UPC)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 24px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-red {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-red:hover {
+            background-color: #d32f2f;
+        }
+
+        .btn-blue {
+            background-color: #3f51b5;
+            color: white;
+        }
+
+        .btn-blue:hover {
+            background-color: #303f9f;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 0;
+            position: relative;
+            z-index: 1000; /* Ensure header is above other elements */
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+        }
+
+        /* Enhanced Navigation Styles */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            display: flex;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            display: block;
+            color: white;
+            font-weight: bold;
+            padding: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .main-nav a.active {
+            background-color: #f44336;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #3f51b5;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a::after {
+            content: " ▼";
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        /* Page Title Section */
+        .page-title {
+            background-color: #3f51b5;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #f44336;
+        }
+
+        .page-title h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Leadership Section */
+        .leadership-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .leadership-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .leadership-intro h2 {
+            color: #3f51b5;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .leadership-intro p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* President Profile */
+        .president-profile {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 60px;
+            background-color: #f5f5f5;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .president-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .president-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .president-info {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .president-name {
+            color: #3f51b5;
+            font-size: 24px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #f44336;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .president-title {
+            font-size: 18px;
+            color: #f44336;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .president-bio {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .president-quote {
+            font-style: italic;
+            color: #3f51b5;
+            padding: 15px;
+            border-left: 3px solid #f44336;
+            background-color: rgba(63, 81, 181, 0.05);
+            margin-bottom: 20px;
+        }
+
+        /* Leadership Team */
+        .leadership-team {
+            margin-bottom: 40px;
+        }
+
+        .team-title {
+            color: #3f51b5;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .team-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #f44336;
+            margin: 10px auto 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-name {
+            color: #3f51b5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .member-title {
+            color: #f44336;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .member-bio {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .member-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .member-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: #3f51b5;
+            color: white;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .member-social a:hover {
+            background-color: #f44336;
+        }
+
+        /* Regional Leaders */
+        .regional-leaders {
+            margin-bottom: 40px;
+        }
+
+        /* Footer section */
+        .footer {
+            padding: 40px 0;
+            background-color: #3f51b5;
+            color: white;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f44336;
+            padding-bottom: 10px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #f44336;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #3f51b5;
+                flex-direction: column;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .main-nav li {
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: #303f9f;
+                display: none;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown > a::after {
+                float: right;
+            }
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+
+            .page-title p {
+                font-size: 16px;
+            }
+
+            .president-profile {
+                flex-direction: column;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo"> <img src="https://via.placeholder.com/70x70/3f51b5/ffffff?text=UPC"
+              alt="UPC Logo"> </div>
+          <button class="nav-toggle" id="navToggle"> <i class="fas fa-bars"></i>
+          </button>
+          <nav class="main-nav" id="mainNav">
+            <ul>
+              <li><a href="index.html">HOME</a></li>
+              <li class="dropdown"> <a href="#" class="active">ABOUT</a>
+                <div class="dropdown-content"> <a href="#">Party History</a> <a
+                    href="leadership.html" class="active">Leadership</a> <a href="#">Constitution</a>
+                  <a href="#">Achievements</a> </div>
+              </li>
+              <li class="dropdown"> <a href="#">CURRENT</a>
+                <div class="dropdown-content"> <a href="news.html">News &amp;
+                    Events</a> <a href="#">Press Releases</a> <a href="#">Campaigns</a>
+                  <a href="#">Statements</a> </div>
+              </li>
+              <li class="dropdown"> <a href="#">HISTORY</a>
+                <div class="dropdown-content"> <a href="#">Founding</a> <a href="#">Past
+                    Leaders</a> <a href="#">Historical Timeline</a> <a href="gallery.html">Photo
+                    Gallery</a> </div>
+              </li>
+              <li><a href="membership.html">MEMBERSHIP</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+              <li><a href="donate.html">DONATE</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- Page Title Section -->
+    <section class="page-title">
+      <div class="container">
+        <h1>PARTY LEADERSHIP</h1>
+        <p>Meet the dedicated leaders guiding the Uganda People's Congress
+          towards a better future for all Ugandans.</p>
+      </div>
+    </section>
+    <!-- Leadership Section -->
+    <section class="leadership-section">
+      <div class="container">
+        <!-- Leadership Introduction -->
+        <div class="leadership-intro">
+          <h2>Our Leadership Team</h2>
+          <p>The Uganda People's Congress is led by a team of dedicated
+            individuals committed to the party's vision of social justice,
+            economic development, and democratic governance in Uganda.</p>
+          <p>Our leaders bring diverse experiences and expertise to guide the
+            party's policies, strategies, and activities at national, regional,
+            and local levels.</p>
+        </div>
+        <!-- President Profile -->
+        <div class="president-profile">
+          <div class="president-image"> <img src="file:///C:/Users/musas/Desktop/gggg/images/akena.jpg"
+              alt="Jimmy Akena" style="width: 349px; height: 249px;"> </div>
+          <div class="president-info">
+            <h2 class="president-name">Jimmy Akena</h2>
+            <p class="president-title">Party President</p>
+            <p class="president-bio">Jimmy Akena has served as the President of
+              the Uganda People's Congress since 2015. Born on March 15, 1967,
+              he is the son of former Ugandan President and UPC founder Dr.
+              Apollo Milton Obote. Akena is also the Member of Parliament
+              representing Lira Municipality.</p>
+            <p class="president-bio">Under his leadership, the UPC has focused
+              on rebuilding party structures, engaging with youth, and
+              advocating for policies that promote social justice and economic
+              development for all Ugandans.</p>
+            <p class="president-quote">"Our vision is to build a Uganda where
+              every citizen has equal opportunities for prosperity, where social
+              justice prevails, and where our democratic institutions serve the
+              interests of all people regardless of their background."</p>
+            <p class="president-bio">Akena holds a degree in Economics from
+              Makerere University and has extensive experience in both public
+              service and private sector management.</p>
+            <a href="#" class="btn btn-red">Full Biography</a> </div>
+        </div>
+        <!-- National Executive Committee -->
+        <div class="leadership-team">
+          <h2 class="team-title">National Executive Committee</h2>
+          <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+              <div class="member-image"> <img src="file:///C:/Users/musas/Desktop/gggg/images/SECRETARY%20GENERAL.jpg"
+                  alt="Team Member"> </div>
+              <div class="member-info">
+                <h3 class="member-name">Sarah Namubiru</h3>
+                <p class="member-title">Secretary General</p>
+                <p class="member-bio">Sarah has been with UPC for over 15 years
+                  and oversees the party's administrative functions and
+                  day-to-day operations.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="team-member">
+              <div class="member-image"> <img src="file:///C:/Users/musas/Desktop/gggg/images/NATIONAL%20WOMAN%20LEADER.jpg"
+                  alt="Team Member"> </div>
+              <div class="member-info">
+                <h3 class="member-name">David Okello</h3>
+                <p class="member-title">Vice President</p>
+                <p class="member-bio">David supports the President in policy
+                  development and strategic planning for the party's growth and
+                  effectiveness.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="team-member">
+              <div class="member-image"> <img src="file:///C:/Users/musas/Desktop/gggg/images/Treasurer.jpg"
+                  alt="Team Member"> </div>
+              <div class="member-info">
+                <h3 class="member-name">Peter Mukasa</h3>
+                <p class="member-title">Treasurer</p>
+                <p class="member-bio">Peter manages the party's finances,
+                  fundraising initiatives, and ensures transparent financial
+                  management.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

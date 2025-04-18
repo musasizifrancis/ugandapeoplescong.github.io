@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Releases - Uganda People's Congress (UPC)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 24px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-red {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-red:hover {
+            background-color: #d32f2f;
+        }
+
+        .btn-blue {
+            background-color: #3f51b5;
+            color: white;
+        }
+
+        .btn-blue:hover {
+            background-color: #303f9f;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+        }
+
+        /* Enhanced Navigation Styles */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            display: flex;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            display: block;
+            color: white;
+            font-weight: bold;
+            padding: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .main-nav a.active {
+            background-color: #f44336;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #3f51b5;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a::after {
+            content: " ▼";
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+
+        /* Page header */
+        .page-header {
+            background-color: #3f51b5;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        /* Content section */
+        .page-content {
+            padding: 40px 0;
+            background-color: white;
+        }
+
+        .content-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .content-main {
+            flex: 3;
+            min-width: 300px;
+        }
+
+        .content-sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .content-box {
+            margin-bottom: 30px;
+        }
+
+        .content-box h2 {
+            color: #3f51b5;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #f44336;
+            padding-bottom: 10px;
+        }
+
+        /* Press release styles */
+        .press-release {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .press-release:last-child {
+            border-bottom: none;
+        }
+
+        .release-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .release-title {
+            font-size: 20px;
+            color: #3f51b5;
+            margin-bottom: 5px;
+        }
+
+        .release-date {
+            color: #777;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .release-tag {
+            display: inline-block;
+            background-color: #f44336;
+            color: white;
+            padding: 4px 8px;
+            font-size: 12px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+
+        .release-content {
+            margin-bottom: 15px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .pagination a {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 0 5px;
+            background-color: #f5f5f5;
+            color: #333;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s;
+        }
+
+        .pagination a:hover {
+            background-color: #e0e0e0;
+        }
+
+        .pagination a.active {
+            background-color: #3f51b5;
+            color: white;
+            border-color: #3f51b5;
+        }
+
+        .sidebar-box {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3f51b5;
+        }
+
+        .sidebar-box h3 {
+            color: #3f51b5;
+            margin-bottom: 15px;
+        }
+
+        .sidebar-links a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar-links a:hover {
+            background-color: #e0e0e0;
+        }
+
+        .sidebar-links a.active {
+            background-color: #3f51b5;
+            color: white;
+        }
+
+        .search-box {
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .search-box button {
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .search-box button:hover {
+            background-color: #303f9f;
+        }
+
+        /* Archive list */
+        .archive-list {
+            list-style: none;
+        }
+
+        .archive-list li {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .archive-list a {
+            display: block;
+            padding: 10px 0;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .archive-list a:hover {
+            color: #f44336;
+        }
+
+        /* Footer section */
+        .footer {
+            padding: 40px 0;
+            background-color: #f5f5f5;
+            position: relative;
+        }
+
+        /* Added background image with opacity */
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/akena.jpg-BeFj0IzHiXmpsvi2EskQ4MIi0Jdp9w.jpeg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-right {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-box {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-box h3.red {
+            color: #f44336;
+        }
+
+        .footer-box h3.blue {
+            color: #3f51b5;
+        }
+
+        .footer-box p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #3f51b5;
+                flex-direction: column;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .main-nav li {
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: #303f9f;
+                display: none;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown > a::after {
+                float: right;
+            }
+
+            .content-container {
+                flex-direction: column;
+            }
+
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            .release-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .release-date {
+                margin-top: 5px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo"> <img src="images/ppc.png" alt="UPC Logo"> </div>
+          <button class="nav-toggle" id="navToggle"> <i class="fas fa-bars"></i>
+          </button>
+          <nav class="main-nav" id="mainNav">
+            <ul>
+              <li><a href="index.html">HOME</a></li>
+              <li class="dropdown"> <a href="#">ABOUT</a>
+                <div class="dropdown-content"> <a href="party-history.html">Party
+                    History</a> <a href="leadership.html">Leadership</a> <a href="constitution.html">Constitution</a>
+                  <a href="achievements.html">Achievements</a> </div>
+              </li>
+              <li class="dropdown"> <a href="#" class="active">CURRENT</a>
+                <div class="dropdown-content"> <a href="news.html">News &amp;
+                    Events</a> <a href="press-releases.html" class="active">Press
+                    Releases</a> <a href="campaigns.html">Campaigns</a> <a href="statements.html">Statements</a>
+                </div>
+              </li>
+              <li class="dropdown"> <a href="#">HISTORY</a>
+                <div class="dropdown-content"> <a href="founding.html">Founding</a>
+                  <a href="past-leaders.html">Past Leaders</a> <a href="historical-timeline.html">Historical
+                    Timeline</a> <a href="gallery.html">Photo Gallery</a> </div>
+              </li>
+              <li><a href="membership.html">MEMBERSHIP</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+              <li><a href="donate.html">DONATE</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>PRESS RELEASES</h1>
+      </div>
+    </section>
+    <!-- Page Content -->
+    <section class="page-content">
+      <div class="container">
+        <div class="content-container">
+          <div class="content-main">
+            <div class="content-box">
+              <h2>OFFICIAL UPC PRESS RELEASES</h2>
+              <!-- Press Release Item -->
+              <div class="press-release">
+                <div class="release-header">
+                  <div>
+                    <h3 class="release-title">UPC Calls for National Dialogue on
+                      Electoral Reforms</h3>
+                    <span class="release-tag">Official Statement</span> <span class="release-tag">Electoral
+                      Reform</span> </div>
+                  <div class="release-date">April 15, 2025</div>
+                </div>
+                <div class="release-content">
+                  <p>The Uganda People's Congress (UPC) is calling for a
+                    comprehensive national dialogue on electoral reforms ahead
+                    of the 2026 general elections. In a statement issued by
+                    Party President Jimmy Akena, UPC emphasized the need for
+                    inclusive discussions involving all political stakeholders
+                    to ensure a free and fair electoral process.</p>
+                  <p>"For democracy to thrive in Uganda, we must address the
+                    persistent challenges in our electoral system. UPC proposes
+                    a series of reforms including the restructuring of the
+                    Electoral Commission, implementation of electronic voting
+                    systems, and a review of campaign financing regulations,"
+                    said Akena.</p>
+                </div>
+                <a href="#" class="btn btn-red">READ FULL RELEASE</a> </div>
+              <!-- Press Release Item -->
+              <div class="press-release">
+                <div class="release-header">
+                  <div>
+                    <h3 class="release-title">UPC Condemns Rising Cost of Living
+                      and Government Inaction</h3>
+                    <span class="release-tag">Economy</span> <span class="release-tag">Social
+                      Welfare</span> </div>
+                  <div class="release-date">April 3, 2025</div>
+                </div>
+                <div class="release-content">
+                  <p>The Uganda People's Congress has expressed deep concern
+                    over the escalating cost of living affecting ordinary
+                    Ugandans. In a statement released today, UPC Secretary
+                    General Fred Ebil highlighted the party's dissatisfaction
+                    with the government's handling of economic challenges facing
+                    the country.</p>
+                  <p>"The continuously rising prices of essential commodities
+                    are pushing more Ugandans into poverty. The current
+                    administration has failed to implement effective economic
+                    policies to address these challenges. UPC proposes immediate
+                    interventions including reduction in fuel taxes,
+                    agricultural subsidies, and price controls on essential
+                    commodities," stated the release.</p>
+                </div>
+                <a href="#" class="btn btn-red">READ FULL RELEASE</a> </div>
+              <!-- Press Release Item -->
+              <div class="press-release">
+                <div class="release-header">
+                  <div>
+                    <h3 class="release-title">UPC Announces Nationwide Party
+                      Membership Drive</h3>
+                    <span class="release-tag">Party Affairs</span> <span class="release-tag">Mobilization</span>
+                  </div>
+                  <div class="release-date">March 22, 2025</div>
+                </div>
+                <div class="release-content">
+                  <p>The Uganda People's Congress has launched a nationwide
+                    membership drive aimed at strengthening the party's
+                    grassroots presence across the country. Speaking at the
+                    launch event at the party headquarters in Kampala, UPC
+                    President Jimmy Akena announced an ambitious plan to
+                    register one million new members by the end of 2025.</p>
+                  <p>"Today marks the beginning of a new chapter in UPC's
+                    journey. We are reaching out to Ugandans from all walks of
+                    life who believe in our vision of a united, prosperous, and
+                    democratic Uganda. Our membership drive will focus on youth
+                    engagement, women empowerment, and digital registration to
+                    make the process accessible to all," Akena stated.</p>
+                </div>
+                <a href="#" class="btn btn-red">READ FULL RELEASE</a> </div>
+              <!-- Press Release Item -->
+              <div class="press-release">
+                <div class="release-header">
+                  <div>
+                    <h3 class="release-title">UPC Commemorates 65th Anniversary
+                      of Its Founding</h3>
+                    <span class="release-tag">Party History</span> <span class="release-tag">Celebration</span>
+                  </div>
+                  <div class="release-date">March 9, 2025</div>
+                </div>
+                <div class="release-content">
+                  <p>The Uganda People's Congress celebrated the 65th
+                    anniversary of its founding with events held across the
+                    country. The party, which played a pivotal role in Uganda's
+                    independence struggle and subsequent political development,
+                    organized a series of commemorative activities reflecting on
+                    its rich history and charting the way forward.</p>
+                  <p>In his anniversary message, UPC President Jimmy Akena paid
+                    tribute to the party's founder, Dr. Apollo Milton Obote, and
+                    other founding members who laid the foundation for one of
+                    Uganda's oldest political parties. "As we celebrate 65 years
+                    of existence, we recommit ourselves to the ideals of
+                    national unity, social justice, and economic progress that
+                    have guided our party since its inception," Akena said.</p>
+                </div>
+                <a href="#" class="btn btn-red">READ FULL RELEASE</a> </div>
+              <!-- Pagination -->
+              <div class="pagination"> <a href="#" class="active">1</a> <a href="#">2</a>
+                <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">»</a>
+              </div>
+            </div>
+          </div>
+          <div class="content-sidebar">
+            <!-- Search Box -->
+            <div class="sidebar-box">
+              <h3>Search Press Releases</h3>
+              <div class="search-box"> <input placeholder="Enter keywords..." type="text">
+                <button type="button">Search</button> </div>
+            </div>
+            <!-- Current Section Links -->
+            <div class="sidebar-box">
+              <h3>Current Section</h3>
+              <div class="sidebar-links"> <a href="news.html">News &amp; Events</a>
+                <a href="press-releases.html" class="active">Press Releases</a>
+                <a href="campaigns.html">Campaigns</a> <a href="statements.html">Statements</a>
+              </div>
+            </div>
+            <!-- Categories -->
+            <div class="sidebar-box">
+              <h3>Categories</h3>
+              <div class="sidebar-links"> <a href="#">Official Statements</a> <a
+
+                  href="#">Economy</a> <a href="#">Elections</a> <a href="#">Party
+                  Affairs</a> <a href="#">Social Issues</a> <a href="#">International
+                  Relations</a> </div>
+            </div>
+            <!-- Archives -->
+            <div class="sidebar-box">
+              <h3>Archives</h3>
+              <ul class="archive-list">
+                <li><a href="#">April 2025</a></li>
+                <li><a href="#">March 2025</a></li>
+                <li><a href="#">February 2025</a></li>
+                <li><a href="#">January 2025</a></li>
+                <li><a href="#">December 2024</a></li>
+                <li><a href="#">November 2024</a></li>
+                <li><a href="#">View All Archives</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer Section with Background Image -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-left">
+            <div class="footer-box">
+              <h3 class="red">Why Us?</h3>
+              <p><strong>Join The Crowd, Be United!</strong></p>
+              <p>The roots of Uganda People's Congress (UPC) can be traced to
+                the Uganda National Congress (UNC) which was formed in 1952
+                under the leadership of Ignatius Musazi.</p>
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/akena.jpg-BeFj0IzHiXmpsvi2EskQ4MIi0Jdp9w.jpeg"
+
+                alt="Footer Image"> </div>
+          </div>
+          <div class="footer-right">
+            <div class="footer-box">
+              <h3 class="blue"><a href="leadership.html" style="color: inherit;">Leadership</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="#" style="color: inherit;">Future Party
+                  Plans</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="#" style="color: inherit;">Past
+                  Achievements</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="membership.html" style="color: inherit;">Membership</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="gallery.html" style="color: inherit;">Photo
+                  Gallery</a></h3>
+            </div>
+            <div class="footer-box">
+              <h3 class="blue"><a href="contact.html" style="color: inherit;">Contact
+                  Us</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- JavaScript for Mobile Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const mainNav = document.getElementById('mainNav');
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            // Toggle mobile menu
+            navToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                mainNav.classList.toggle('active');
+            });
+
+            // Handle dropdowns on mobile
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other open dropdowns
+                        dropdowns.forEach(d => {
+                            if (d !== dropdown) {
+                                d.classList.remove('active');
+                            }
+                        });
+                        
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+
+            // Prevent dropdown content clicks from closing the dropdown
+            const dropdownContents = document.querySelectorAll('.dropdown-content');
+            dropdownContents.forEach(content => {
+                content.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mainNav.contains(e.target) && e.target !== navToggle) {
+                    mainNav.classList.remove('active');
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    mainNav.classList.remove('active');
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
+    
+  </body>
+</html>
