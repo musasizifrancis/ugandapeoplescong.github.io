@@ -64,13 +64,15 @@
             background-color: #303f9f;
         }
 
-        /* Header styles */
+        /* UPDATED Header styles */
         header {
             background-color: #3f51b5;
             color: white;
-            padding: 10px 0;
-            position: relative;
-            z-index: 1000; /* Ensure header is above other elements */
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .header-content {
@@ -82,13 +84,19 @@
         .logo {
             display: flex;
             align-items: center;
+            padding: 10px 0;
         }
 
         .logo img {
-            height: 70px;
+            height: 60px;
+            transition: transform 0.3s ease;
         }
 
-        /* Enhanced Navigation Styles */
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        /* UPDATED Navigation Styles */
         .nav-toggle {
             display: none;
             background: none;
@@ -96,6 +104,17 @@
             color: white;
             font-size: 24px;
             cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .main-nav {
@@ -115,19 +134,35 @@
             display: block;
             color: white;
             font-weight: bold;
-            padding: 15px;
-            transition: background-color 0.3s;
+            padding: 25px 20px;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 14px;
+            letter-spacing: 0.5px;
         }
 
         .main-nav a:hover {
             background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
         }
 
+        /* UPDATED Active state with underline */
         .main-nav a.active {
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
             background-color: #f44336;
         }
 
-        /* Dropdown styles */
+        /* UPDATED Dropdown styles - REMOVED ARROWS */
         .dropdown {
             position: relative;
         }
@@ -135,29 +170,40 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #3f51b5;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 0 0 4px 4px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
             z-index: 1;
         }
 
         .dropdown-content a {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.2s;
         }
 
         .dropdown-content a:last-child {
             border-bottom: none;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+            color: #f44336;
+            padding-left: 25px;
         }
 
-        .dropdown > a::after {
-            content: " ▼";
-            font-size: 10px;
-            margin-left: 5px;
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Page Title Section */
@@ -271,15 +317,15 @@
             margin-bottom: 20px;
         }
 
-        /* Leadership Team */
+        /* Leadership Team - UPDATED */
         .leadership-team {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
         .team-title {
             color: #3f51b5;
             font-size: 24px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-align: center;
             position: relative;
         }
@@ -293,82 +339,147 @@
             margin: 10px auto 0;
         }
 
+        /* UPDATED Team Grid */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 40px;
+            justify-content: center;
         }
 
+        /* UPDATED Team Member */
         .team-member {
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
             transition: transform 0.3s;
         }
 
         .team-member:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
         }
 
-        .member-image {
-            height: 250px;
+        /* UPDATED Member Image with circular design */
+        .member-image-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+        }
+
+        .member-image-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#f44336 0deg 180deg, #3f51b5 180deg 360deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .member-image-inner {
+            width: 85%;
+            height: 85%;
+            border-radius: 50%;
             overflow: hidden;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .member-image img {
+        .member-image-inner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 50%;
         }
 
         .member-info {
-            padding: 20px;
+            padding: 0 10px;
         }
 
         .member-name {
             color: #3f51b5;
             font-size: 18px;
             margin-bottom: 5px;
+            font-weight: bold;
         }
 
         .member-title {
             color: #f44336;
             font-size: 14px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .member-bio {
             color: #666;
             font-size: 14px;
             margin-bottom: 15px;
+            line-height: 1.5;
         }
 
         .member-social {
             display: flex;
             gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
         }
 
         .member-social a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 30px;
-            height: 30px;
+            width: 36px;
+            height: 36px;
             background-color: #3f51b5;
             color: white;
             border-radius: 50%;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
         }
 
         .member-social a:hover {
             background-color: #f44336;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         }
 
-        /* Regional Leaders */
+        /* Regional Leaders Section */
         .regional-leaders {
+            margin-bottom: 60px;
+        }
+
+        .regional-title {
+            color: #3f51b5;
+            font-size: 24px;
             margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .regional-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #f44336;
+            margin: 10px auto 0;
         }
 
         /* Footer section */
@@ -420,25 +531,33 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Responsive styles */
+        /* UPDATED Mobile Navigation Styles */
         @media (max-width: 768px) {
             .nav-toggle {
-                display: block;
+                display: flex;
+                z-index: 1001;
             }
 
             .main-nav {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
                 width: 100%;
+                height: 100%;
                 background-color: #3f51b5;
                 flex-direction: column;
+                padding-top: 80px;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                overflow-y: auto;
+                transition: all 0.3s ease;
+                transform: translateX(-100%);
+                z-index: 1000;
             }
 
             .main-nav.active {
                 display: block;
+                transform: translateX(0);
             }
 
             .main-nav ul {
@@ -448,21 +567,55 @@
 
             .main-nav li {
                 width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .main-nav li:last-child {
+                border-bottom: none;
+            }
+
+            .main-nav a {
+                padding: 15px 20px;
+                font-size: 16px;
+            }
+
+            .main-nav a.active::after {
+                display: none;
+            }
+
+            .main-nav a.active {
+                background-color: rgba(244, 67, 54, 0.2);
+                border-left: 4px solid #f44336;
             }
 
             .dropdown-content {
                 position: static;
                 box-shadow: none;
-                background-color: #303f9f;
+                background-color: rgba(0, 0, 0, 0.1);
+                border-radius: 0;
                 display: none;
+                opacity: 1;
+                transform: none;
+                transition: max-height 0.3s ease;
+                max-height: 0;
+                overflow: hidden;
+                padding-left: 15px;
+            }
+
+            .dropdown-content a {
+                color: white;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                padding: 12px 15px 12px 25px;
+            }
+
+            .dropdown-content a:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: white;
             }
 
             .dropdown.active .dropdown-content {
                 display: block;
-            }
-
-            .dropdown > a::after {
-                float: right;
+                max-height: 500px;
             }
 
             .page-title h1 {
@@ -478,11 +631,29 @@
             }
 
             .team-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 30px;
+            }
+
+            .member-image-container {
+                width: 150px;
+                height: 150px;
             }
 
             .footer-content {
                 flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 20px;
+            }
+
+            .member-image-container {
+                width: 130px;
+                height: 130px;
             }
         }
     </style>
@@ -499,7 +670,8 @@
             <ul>
               <li><a href="index.html">HOME</a></li>
               <li class="dropdown"> <a href="#" class="active">ABOUT</a>
-                <div class="dropdown-content"> <a href="#">Party History</a> <a
+                <div class="dropdown-content"> <a href="#">Party History</a> <a
+
                     href="leadership.html" class="active">Leadership</a> <a href="#">Constitution</a>
                   <a href="#">Achievements</a> </div>
               </li>
@@ -544,7 +716,8 @@
         </div>
         <!-- President Profile -->
         <div class="president-profile">
-          <div class="president-image"> <img src="file:///C:/Users/musas/Desktop/gggg/images/akena.jpg"
+          <div class="president-image"> <img src="file:///C:/Users/musas/Desktop/gggg/images/akena.jpg"
+
               alt="Jimmy Akena" style="width: 349px; height: 249px;"> </div>
           <div class="president-info">
             <h2 class="president-name">Jimmy Akena</h2>
@@ -567,55 +740,260 @@
               service and private sector management.</p>
             <a href="#" class="btn btn-red">Full Biography</a> </div>
         </div>
-        <!-- National Executive Committee -->
+         <!-- National Executive Committee -->
         <div class="leadership-team">
           <h2 class="team-title">National Executive Committee</h2>
           <div class="team-grid">
             <!-- Team Member 1 -->
             <div class="team-member">
-              <div class="member-image"> <img src="file:///C:/Users/musas/Desktop/gggg/images/SECRETARY%20GENERAL.jpg"
-                  alt="Team Member"> </div>
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="images/SECRETARY%20GENERAL.jpg"
+
+                      alt="Sarah Namubiru"> </div>
+                </div>
+              </div>
               <div class="member-info">
                 <h3 class="member-name">Sarah Namubiru</h3>
                 <p class="member-title">Secretary General</p>
                 <p class="member-bio">Sarah has been with UPC for over 15 years
-                  and oversees the party's administrative functions and
-                  day-to-day operations.</p>
+                  and oversees the party's administrative functions.</p>
                 <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
                       class="fab fa-linkedin-in"></i></a> </div>
               </div>
             </div>
             <!-- Team Member 2 -->
             <div class="team-member">
-              <div class="member-image"> <img src="file:///C:/Users/musas/Desktop/gggg/images/NATIONAL%20WOMAN%20LEADER.jpg"
-                  alt="Team Member"> </div>
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="images/NATIONAL%20WOMAN%20LEADER.jpg"
+
+                      alt="David Okello"> </div>
+                </div>
+              </div>
               <div class="member-info">
                 <h3 class="member-name">David Okello</h3>
                 <p class="member-title">Vice President</p>
                 <p class="member-bio">David supports the President in policy
-                  development and strategic planning for the party's growth and
-                  effectiveness.</p>
+                  development and strategic planning.</p>
                 <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
                       class="fab fa-linkedin-in"></i></a> </div>
               </div>
             </div>
             <!-- Team Member 3 -->
             <div class="team-member">
-              <div class="member-image"> <img src="file:///C:/Users/musas/Desktop/gggg/images/Treasurer.jpg"
-                  alt="Team Member"> </div>
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="images/Treasurer.jpg"
+
+                      alt="Peter Mukasa"> </div>
+                </div>
+              </div>
               <div class="member-info">
                 <h3 class="member-name">Peter Mukasa</h3>
                 <p class="member-title">Treasurer</p>
-                <p class="member-bio">Peter manages the party's finances,
-                  fundraising initiatives, and ensures transparent financial
-                  management.</p>
+                <p class="member-bio">Peter manages the party's finances and
+                  fundraising initiatives.</p>
                 <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
                       class="fab fa-linkedin-in"></i></a> </div>
               </div>
             </div>
+            <!-- Team Member 4 -->
+            <div class="team-member">
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-04-23%20at%2015.30.00%20%281%29-xJnqLGcJolKGbdh95FHSkitMxxw2GX.jpeg"
+
+                      alt="Oyat Sharon"> </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Oyat Sharon</h3>
+                <p class="member-title">PRO</p>
+                <p class="member-bio">Oyat handles public relations and media
+                  communications for the party.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+            <!-- Team Member 5 -->
+            <div class="team-member">
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="images/SECRETARY%20GENERAL.jpg"
+
+                      alt="John Kamya"> </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">John Kamya</h3>
+                <p class="member-title">Youth Leader</p>
+                <p class="member-bio">John leads youth engagement and
+                  mobilization across the country.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+            <!-- Team Member 6 -->
+            <div class="team-member">
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="images/NATIONAL%20WOMAN%20LEADER.jpg"
+
+                      alt="Grace Atim"> </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Grace Atim</h3>
+                <p class="member-title">Women's Leader</p>
+                <p class="member-bio">Grace advocates for women's rights and
+                  gender equality policies.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+            <!-- Team Member 7 -->
+            <div class="team-member">
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="images/Treasurer.jpg"
+
+                      alt="Robert Okot"> </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Robert Okot</h3>
+                <p class="member-title">Policy Director</p>
+                <p class="member-bio">Robert leads policy development and
+                  research initiatives.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+            <!-- Team Member 8 -->
+            <div class="team-member">
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-04-23%20at%2015.30.00%20%281%29-xJnqLGcJolKGbdh95FHSkitMxxw2GX.jpeg"
+
+                      alt="Mary Lakica"> </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Mary Lakica</h3>
+                <p class="member-title">Organizing Secretary</p>
+                <p class="member-bio">Mary coordinates party activities and
+                  grassroots mobilization.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Regional Leaders Section -->
+        <div class="regional-leaders">
+          <h2 class="regional-title">Regional Leaders</h2>
+          <div class="team-grid">
+            <!-- Regional Leader 1 -->
+            <div class="team-member">
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="images/SECRETARY%20GENERAL.jpg"
+
+                      alt="James Opio"> </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">James Opio</h3>
+                <p class="member-title">Northern Region</p>
+                <p class="member-bio">James coordinates party activities in the
+                  Northern Region.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+            <!-- Regional Leader 2 -->
+            <div class="team-member">
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="images/NATIONAL%20WOMAN%20LEADER.jpg"
+
+                      alt="Florence Adeke"> </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Florence Adeke</h3>
+                <p class="member-title">Eastern Region</p>
+                <p class="member-bio">Florence leads party initiatives in the
+                  Eastern Region.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+            <!-- Regional Leader 3 -->
+            <div class="team-member">
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="images/Treasurer.jpg"
+
+                      alt="Michael Ssebalu"> </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Michael Ssebalu</h3>
+                <p class="member-title">Central Region</p>
+                <p class="member-bio">Michael oversees party operations in the
+                  Central Region.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+            <!-- Regional Leader 4 -->
+            <div class="team-member">
+              <div class="member-image-container">
+                <div class="member-image-circle">
+                  <div class="member-image-inner"> <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-04-23%20at%2015.30.00%20%281%29-xJnqLGcJolKGbdh95FHSkitMxxw2GX.jpeg"
+
+                      alt="Patricia Achieng"> </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Patricia Achieng</h3>
+                <p class="member-title">Western Region</p>
+                <p class="member-bio">Patricia manages party activities in the
+                  Western Region.</p>
+                <div class="member-social"> <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
+
+                      class="fab fa-linkedin-in"></i></a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
           </div>
         </div>
       </div>
