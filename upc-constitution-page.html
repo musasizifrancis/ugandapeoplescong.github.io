@@ -266,6 +266,35 @@
             color: #555;
         }
 
+        /* Download button animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-download {
+            animation: pulse 2s infinite;
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* Footer section */
         .footer {
             padding: 40px 0;
@@ -381,8 +410,7 @@
             }
         }
     </style>
-  </head>
-  <body>
+    
     <!-- Header -->
     <header>
       <div class="container">
@@ -622,6 +650,8 @@
             const navToggle = document.getElementById('navToggle');
             const mainNav = document.getElementById('mainNav');
             const dropdowns = document.querySelectorAll('.dropdown');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const downloadSpinner = document.getElementById('downloadSpinner');
 
             // Toggle mobile menu
             navToggle.addEventListener('click', function(e) {
@@ -675,6 +705,127 @@
                     dropdowns.forEach(dropdown => {
                         dropdown.classList.remove('active');
                     });
+                }
+            });
+
+            // PDF Download functionality using client-side text generation
+            downloadBtn.addEventListener('click', function() {
+                // Show loading spinner
+                downloadSpinner.style.display = 'inline-block';
+                
+                try {
+                    // Create a text representation of the constitution
+                    let constitutionText = "UGANDA PEOPLE'S CONGRESS (UPC) CONSTITUTION\n\n";
+                    constitutionText += "Last amended and approved by the National Delegates Conference on November 22, 2008\n\n";
+                    constitutionText += "INTRODUCTION\n";
+                    constitutionText += "The UPC Constitution establishes the framework for the party's principles, structures, operations, and procedures. It embodies our commitment to democracy, social justice, national unity, and sustainable development.\n\n";
+                    
+                    constitutionText += "ARTICLE I: NAME, SYMBOLS, AND IDENTITY\n\n";
+                    constitutionText += "Section 1: Name and Status\n";
+                    constitutionText += "The name of the party shall be \"UGANDA PEOPLE'S CONGRESS\" (UPC). The Party shall be a political organization registered under the laws of Uganda.\n\n";
+                    
+                    constitutionText += "Section 2: Party Symbols\n";
+                    constitutionText += "The official symbol of the Party shall be the open right palm with fingers pointing upwards. The Party colors shall be blue and red, symbolizing peace, strength, and courage.\n\n";
+                    
+                    constitutionText += "Section 3: Party Motto\n";
+                    constitutionText += "The Party motto shall be \"For Peace, Unity, and Development.\"\n\n";
+                    
+                    constitutionText += "ARTICLE II: VISION, MISSION, AND CORE VALUES\n\n";
+                    constitutionText += "Section 1: Vision\n";
+                    constitutionText += "To build a united, democratic, and prosperous Uganda where citizens live in peace and enjoy equal opportunities and social justice.\n\n";
+                    
+                    constitutionText += "Section 2: Mission\n";
+                    constitutionText += "To mobilize Ugandans towards achieving socio-economic transformation, political stability, and cultural harmony through democratic governance, sustainable development policies, and respect for human rights.\n\n";
+                    
+                    constitutionText += "Section 3: Core Values\n";
+                    constitutionText += "The Party shall be guided by the following core values:\n";
+                    constitutionText += "• Democracy and good governance\n";
+                    constitutionText += "• National unity and integration\n";
+                    constitutionText += "• Social justice and equality\n";
+                    constitutionText += "• Economic empowerment and self-reliance\n";
+                    constitutionText += "• Integrity and accountability\n";
+                    constitutionText += "• Peace and security\n\n";
+                    
+                    constitutionText += "ARTICLE III: OBJECTIVES\n\n";
+                    constitutionText += "The objectives of the Party shall be:\n\n";
+                    constitutionText += "1. To promote national unity and integration across Uganda's diverse ethnic, religious, and cultural groups.\n";
+                    constitutionText += "2. To establish and maintain democratic governance systems at all levels of government.\n";
+                    constitutionText += "3. To advocate for and implement policies that promote social justice, equality, and human rights.\n";
+                    constitutionText += "4. To develop and implement sustainable economic policies that empower citizens and reduce poverty.\n";
+                    constitutionText += "5. To build strong institutions that enhance transparency, accountability, and efficient public service delivery.\n";
+                    constitutionText += "6. To promote environmental conservation and sustainable use of natural resources.\n";
+                    constitutionText += "7. To foster international cooperation for peace, security, and development.\n\n";
+                    
+                    constitutionText += "ARTICLE IV: MEMBERSHIP\n\n";
+                    constitutionText += "Section 1: Eligibility\n";
+                    constitutionText += "Membership of the Party shall be open to all Ugandan citizens who are 18 years and above, subscribe to the Party's vision, mission, and core values, and comply with the Party's Constitution and Code of Conduct.\n\n";
+                    
+                    constitutionText += "Section 2: Categories of Membership\n";
+                    constitutionText += "The Party shall have the following categories of membership:\n";
+                    constitutionText += "• Ordinary Members: Registered members who pay the prescribed membership fees.\n";
+                    constitutionText += "• Life Members: Members who pay a one-time life membership fee as prescribed by the National Executive Committee.\n";
+                    constitutionText += "• Honorary Members: Individuals who have made significant contributions to the Party or to national development, as determined by the National Executive Committee.\n\n";
+                    
+                    constitutionText += "Section 3: Rights and Responsibilities\n";
+                    constitutionText += "All members shall have the right to:\n";
+                    constitutionText += "• Participate in Party activities and decision-making processes.\n";
+                    constitutionText += "• Vote and be voted for in Party elections, subject to meeting eligibility criteria.\n";
+                    constitutionText += "• Access information about Party activities and use of Party resources.\n\n";
+                    
+                    constitutionText += "All members shall have the responsibility to:\n";
+                    constitutionText += "• Uphold and promote the Party's vision, mission, and core values.\n";
+                    constitutionText += "• Comply with the Party's Constitution, Code of Conduct, and policies.\n";
+                    constitutionText += "• Pay membership fees and other prescribed fees promptly.\n";
+                    constitutionText += "• Participate actively in Party activities and programs.\n\n";
+                    
+                    constitutionText += "ARTICLE V: PARTY STRUCTURE\n\n";
+                    constitutionText += "Section 1: National Level\n";
+                    constitutionText += "The Party shall have the following organs at the national level:\n";
+                    constitutionText += "• National Delegates Conference (NDC): The supreme authority of the Party.\n";
+                    constitutionText += "• National Council (NC): The policy-making organ between NDC meetings.\n";
+                    constitutionText += "• National Executive Committee (NEC): The implementing organ of Party policies.\n";
+                    constitutionText += "• Parliamentary Caucus: Consists of all UPC Members of Parliament.\n";
+                    constitutionText += "• National Secretariat: The administrative organ headed by the Secretary-General.\n\n";
+                    
+                    constitutionText += "Section 2: Regional Level\n";
+                    constitutionText += "The Party shall establish Regional Coordination Committees to coordinate Party activities within defined regions.\n\n";
+                    
+                    constitutionText += "Section 3: District Level\n";
+                    constitutionText += "The Party shall have the following organs at the district level:\n";
+                    constitutionText += "• District Conference\n";
+                    constitutionText += "• District Executive Committee\n";
+                    constitutionText += "• District Secretariat\n\n";
+                    
+                    constitutionText += "Section 4: Constituency and Sub-county Levels\n";
+                    constitutionText += "The Party shall have Executive Committees at the constituency and sub-county levels.\n\n";
+                    
+                    constitutionText += "Section 5: Parish and Village Levels\n";
+                    constitutionText += "The Party shall have Executive Committees at the parish and village levels.\n\n";
+                    
+                    // Create a Blob with the text content
+                    const blob = new Blob([constitutionText], { type: 'text/plain' });
+                    
+                    // Create a URL for the blob
+                    const url = URL.createObjectURL(blob);
+                    
+                    // Create a temporary anchor element
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'UPC Constitution.pdf';
+                    a.style.display = 'none';
+                    
+                    // Append to the document, click it, and clean up
+                    document.body.appendChild(a);
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                    
+                } catch (error) {
+                    console.error('Error generating document:', error);
+                    alert('There was an error generating the document. Please try again.');
+                } finally {
+                    // Hide loading spinner
+                    downloadSpinner.style.display = 'none';
                 }
             });
         });
